@@ -1,3 +1,7 @@
+## Release v0.17.0+nobase
+
+Many dependecies are removed
+
 ## Release v0.17.0
 
 * Added `Ppx_inline_test_lib.init`, which re-configures the test runner with a new set of arguments, rather than those from the command line.

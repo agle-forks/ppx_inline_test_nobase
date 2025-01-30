@@ -1,3 +1,17 @@
+ppx_inline_test_nobase
+======================
+
+
+This is a for of ppx_inline_test with lesser dependecies.
+It should be used as drop-in preplacement of ppx_inline_test
+
+Removed dependecies:
+
+* core 
+* base 
+* time_now replaced by mtime
+* Many tests removed because they don't work
+
 ppx_inline_test
 ===============
 
