@@ -4,8 +4,8 @@
     import.ml:
 
     {[
-      module Inline_test_config = struct
-        include Inline_test_config
+      module Inline_test_nobase_config = struct
+        include Inline_test_nobase_config
         let pre_test_hook () = ...
       end
     ]}

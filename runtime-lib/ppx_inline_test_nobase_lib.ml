@@ -39,7 +39,7 @@ type filename = string
 type line_number = int
 type start_pos = int
 type end_pos = int
-type config = (module Inline_test_config.S)
+type config = (module Inline_test_nobase_config.S)
 
 type 'a test_function_args =
   config:config
@@ -541,7 +541,7 @@ let hum_backtrace backtrace =
   backtrace
   |> String.split_on_char '\n'
   |> list_take_while ~f:(fun str ->
-    not (Search_pattern.matches (Lazy.force where_to_cut_backtrace) str))
+       not (Search_pattern.matches (Lazy.force where_to_cut_backtrace) str))
   |> ListLabels.map ~f:(fun str -> "  " ^ str ^ "\n")
   |> String.concat ""
 ;;

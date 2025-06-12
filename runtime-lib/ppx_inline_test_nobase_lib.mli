@@ -37,7 +37,7 @@ module Test_result : sig
   val to_string : t -> string
 end
 
-type config = (module Inline_test_config.S)
+type config = (module Inline_test_nobase_config.S)
 
 type 'a test_function_args =
   config:config

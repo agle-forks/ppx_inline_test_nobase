@@ -7,8 +7,8 @@ It should be used as drop-in preplacement of ppx_inline_test
 
 Removed dependecies:
 
-* core 
-* base 
+* core
+* base
 * time_now replaced by mtime
 * Many tests removed because they don't work
 
@@ -165,7 +165,7 @@ necessarily want to run their tests too. For instance, `core` is built by giving
 core_extended`. And now when an executable linked with both `core` and `core_extended` is
 run with a `libname` of `core_extended`, only the tests of `core_extended` are run.
 
-Finally, after running tests, `Ppx_inline_test_lib.exit ()` should be called (to
+Finally, after running tests, `Ppx_inline_test_nobase_lib.exit ()` should be called (to
 exit with an error and a summary of the number of failed tests if there were errors or
 exit normally otherwise).
 

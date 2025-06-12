@@ -120,8 +120,8 @@ let apply_to_descr lid ~loc ?inner_loc e_opt id_opt tags more_arg =
   let expr =
     pexp_apply
       ~loc
-      (evar ~loc ("Ppx_inline_test_lib." ^ lid))
-      [ Labelled "config", [%expr (module Inline_test_config)]
+      (evar ~loc ("Ppx_inline_test_nobase_lib." ^ lid))
+      [ Labelled "config", [%expr (module Inline_test_nobase_config)]
       ; Labelled "descr", descr
       ; Labelled "tags", elist ~loc (List.map ~f:(estring ~loc) tags)
       ; Labelled "filename", filename
@@ -146,7 +146,9 @@ module Has_tests =
     (struct
       let name = "ppx_inline_test.has_tests"
     end)
-    (struct type t = bool 
+    (struct
+      type t = bool
+
       let t_of_sexp = Sexplib0.Sexp_conv.bool_of_sexp
       let sexp_of_t = Sexplib0.Sexp_conv.sexp_of_bool
     end)
@@ -331,12 +333,14 @@ let () =
         maybe_drop
           loc
           [%expr
-            Ppx_inline_test_lib.set_lib_and_partition
+            Ppx_inline_test_nobase_lib.set_lib_and_partition
               [%e estring ~loc libname]
               [%e estring ~loc partition]]
       and footer =
         let loc = { loc with loc_start = loc.loc_end } in
-        maybe_drop loc [%expr Ppx_inline_test_lib.unset_lib [%e estring ~loc libname]]
+        maybe_drop
+          loc
+          [%expr Ppx_inline_test_nobase_lib.unset_lib [%e estring ~loc libname]]
       in
       header, footer)
 ;;

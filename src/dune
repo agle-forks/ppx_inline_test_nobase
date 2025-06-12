@@ -14,7 +14,7 @@
  (inline_tests.backend
   (runner_libraries)
   (generate_runner
-   (echo "let () = Ppx_inline_test_lib.exit ();;"))
+   (echo "let () = Ppx_inline_test_nobase_lib.exit ();;"))
   (list_partitions_flags
    "inline-test-runner"
    %{library-name}
