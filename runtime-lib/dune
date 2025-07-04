@@ -8,7 +8,7 @@
  (wrapped false)
  (modules ppx_inline_test_nobase_lib search_pattern)
  (public_name ppx_inline_test_nobase.runtime-lib)
- (libraries inline_test_nobase_config mtime mtime.clock.os)
+ (libraries inline_test_nobase_config mtime.clock)
  (js_of_ocaml
   (flags --no-sourcemap)
   (javascript_files runtime.js))
